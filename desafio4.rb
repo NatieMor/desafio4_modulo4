@@ -17,6 +17,9 @@ end
 data_hash= request('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=10&api_key=C6d6ya1SRztiqEpUbmTMl08Btkeefy7NuRDvt4Gf')
  puts data_hash["photos"]#se imprime el retorno del request como un HASH, atraves del uso de la key, se imprime el valor de la key "photos"
 
-#data_hash.each do |img_src|
-  #  puts "clave es : #{img_src.to_s}"
-#end 
+ puts data_hash["photos"][0..10]
+ #tiene que ser un ciclo..
+    data_hash.each do |i|
+        puts "la id es #{data_hash["photos"][0]["id"]} y la imagen es #{data_hash["photos"][0]["img_src"]}"
+      puts
+    end
