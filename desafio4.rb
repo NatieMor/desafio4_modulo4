@@ -19,7 +19,8 @@ data_hash= request('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/pho
 
  puts data_hash["photos"][0..10]
  #tiene que ser un ciclo..
-    data_hash.each do |i|
-        puts "la id es #{data_hash["photos"][0]["id"]} y la imagen es #{data_hash["photos"][0]["img_src"]}"
+ data_hash["photos"].each do |elemento|
+               puts "la id es #{data_hash["photos"][0]["id"]} y la imagen es #{data_hash["photos"][0]["img_src"]}"
       puts
-    end
+end
+
