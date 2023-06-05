@@ -78,5 +78,14 @@ def buid_web_page(data)
         i += 1
     end
     puts "Tenemos #{i} Imagenes de la NASA"
+    array=[]
+    $data["photos"].each do |elemento|
+      array << elemento["id"]
+      array << elemento["camera"]["name"]
+      #puts "ID de la imagen: #{elemento ["id"]}, tomada con la camara #{elemento["camera"]["name"]}"
+      puts 
+      puts "Camara : #{elemento["camera"]["name"]} ID de la imagen: #{elemento ["id"]}"
+      end 
+      puts array
   end
-  photos_count($data)
+photos_count($data)
