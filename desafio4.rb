@@ -70,7 +70,7 @@ def buid_web_page(data)
   File.write('index.html', html)
   end
   buid_web_page($data)
-
+puts "se crea archivo html para la pagina web con nombre index.html, falta el fav_icon al incorporar una imagen desde la pagina me salio error"
   #REQUERIENTO 3
   def photos_count(data)
     i = 0
