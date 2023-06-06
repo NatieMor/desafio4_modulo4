@@ -78,7 +78,6 @@ puts
 #REQUERIMIENTO 4
 def photos_count(data) #PARA CONTAR LOS ELEMENTOS 
       i = 0
-      puts "Hay #{i} fotos "
        array1=[].to_a
        array2=[].to_a
     $data["photos"].each do |elemento|
