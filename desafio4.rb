@@ -70,22 +70,28 @@ def buid_web_page(data)
   File.write('index.html', html)
   end
   buid_web_page($data)
+puts
 puts "se crea archivo html para la pagina web con nombre index.html, falta el fav_icon al incorporar una imagen desde la pagina me salio error"
-  #REQUERIENTO 3
-  def photos_count(data)
-    i = 0
+puts 
+puts $data["photos"][0]["camera"].invert().to_s #lo use para buscar el algunos valores
+puts
+#REQUERIMIENTO 4
+def photos_count(data) #PARA CONTAR LOS ELEMENTOS 
+      i = 0
+      puts "Hay #{i} fotos "
+       array1=[].to_a
+       array2=[].to_a
     $data["photos"].each do |elemento|
-        i += 1
+      i+= 1
+      array1<< elemento["id"]
+      array2<< elemento["camera"]["name"]
+      puts "#{i} Nombre de la camara:  #{elemento["camera"]["name"]} ID de la foto: #{elemento["id"]}"
     end
-    puts "Tenemos #{i} Imagenes de la NASA"
-    array=[]
-    $data["photos"].each do |elemento|
-      array << elemento["id"]
-      array << elemento["camera"]["name"]
-      #puts "ID de la imagen: #{elemento ["id"]}, tomada con la camara #{elemento["camera"]["name"]}"
-      puts 
-      puts "Camara : #{elemento["camera"]["name"]} ID de la imagen: #{elemento ["id"]}"
-      end 
-      puts array
-  end
+    puts "En total son para CHEMCAM = 20 imagenes, para MAHLI= 2 imagenes y para NAVCAM = 4 imagenes"
+    arreglo = array2 + array1 
+    puts
+    puts arreglo.class
+    puts
+    print  arreglo.to_s
+end 
 photos_count($data)
