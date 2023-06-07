@@ -76,21 +76,21 @@ puts
 puts $data["photos"][0]["camera"].invert().to_s #lo use para buscar el algunos valores
 puts
 #REQUERIMIENTO 4
-def photos_count(data) #PARA CONTAR LOS ELEMENTOS 
-      i = 0
-       array1=[].to_a
-       array2=[].to_a
-    $data["photos"].each do |elemento|
-      i+= 1
-      array1<< elemento["id"]
-      array2<< elemento["camera"]["name"]
-      puts "#{i} Nombre de la camara:  #{elemento["camera"]["name"]} ID de la foto: #{elemento["id"]}"
-    end
-    puts "En total son para CHEMCAM = 20 imagenes, para MAHLI= 2 imagenes y para NAVCAM = 4 imagenes"
-    arreglo = array2 + array1 
-    puts
-    puts arreglo.class
-    puts
-    print  arreglo.to_s
-end 
+
+def photos_count(data) #PARA CONTAR LOS ELEMENTOS
+  i = 0
+  array1=[].to_a
+  $data["photos"].each do |elemento|
+    i+= 1
+ array1<< elemento["camera"]["name"]
+end
+puts
+  puts "Son #{$data["photos"].count} fotos con las siguientes keys #{$data["photos"][0].keys} y la camara esta formado por #{$data["photos"][0]["camera"].count} elementos #{$data["photos"][0]["camera"].keys}"
+  puts
+  print "El arreglo esta formado por #{array1} \n"
+  puts
+  puts "Para la camara  #{array1[0]} son = #{array1.count("CHEMCAM")} fotos"
+  puts "Para la camara  #{array1[20]} son = #{array1.count("MAHLI")} fotos"
+  puts "Para la camara #{array1[22]} son = #{array1.count("NAVCAM")} fotos"
+end
 photos_count($data)
